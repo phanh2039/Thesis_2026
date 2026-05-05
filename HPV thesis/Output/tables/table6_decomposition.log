@@ -1,0 +1,64 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  table6
+       log:  E:\FH5\Thesis HA\Thesis_2026/HPV thesis/Output/tables/table6_decomposition.log
+  log type:  text
+ opened on:   6 May 2026, 03:35:17
+
+. 
+. foreach y in ccp5_bin ccp6_bin gap {
+  2.     capture noisily conindex `y', rankvar(ses) bounded limits(0 1) erreygers svy
+  3.     if _rc != 0 {
+  4.         di as error "conindex failed for `y'; decomposition skipped."
+  5.         continue
+  6.     }
+  7.     scalar __ci_total = r(CI)
+  8.     scalar __sum_contrib = 0
+  9. 
+.     quietly svy: glm `y' `X_decomp', family(binomial) link(probit)
+ 10.     tempvar esamp
+ 11.     gen byte `esamp' = e(sample)
+ 12.     quietly margins, dydx(*) post
+ 13.     matrix __bm = e(b)
+ 14. 
+.     foreach x of local X_decomp {
+ 15.         local col = colnumb(__bm, "`x'")
+ 16.         if `col' >= . continue
+ 17.         scalar __dydx = __bm[1, `col']
+ 18.         quietly conindex `x' if `esamp', rankvar(ses) truezero limits(0 1) svy
+ 19.         scalar __ci_x = r(CI)
+ 20.         quietly summarize `x' if `esamp' [aw=wmweight]
+ 21.         scalar __mean_x = r(mean)
+ 22.         scalar __contrib = 4 * __dydx * __mean_x * __ci_x
+ 23.         scalar __pct = (__contrib / __ci_total) * 100
+ 24.         scalar __sum_contrib = __sum_contrib + __contrib
+ 25.         post `dp' ("`y'") ("`x'") (__dydx) (__mean_x) (__ci_x) (__contrib) (__pct)
+ 26.     }
+ 27. 
+.     scalar __res = __ci_total - __sum_contrib
+ 28.     scalar __respct = (__res / __ci_total) * 100
+ 29.     post `dp' ("`y'") ("Residual") (.) (.) (.) (__res) (__respct)
+ 30.     drop `esamp'
+ 31. }
+------------------------------------------------------------------------------+
+Index:             | No. of obs. | Index value | Std. error        | p-value  |
+-------------------+-------------+-------------+-------------------+----------|
+Erreygers norm. CI | 4102        | .3711015    |.02222655          |  0.0000  |
+------------------------------------------------------------------------------+
+------------------------------------------------------------------------------+
+Index:             | No. of obs. | Index value | Std. error        | p-value  |
+-------------------+-------------+-------------+-------------------+----------|
+Erreygers norm. CI | 4102        | .11634965   |.01419092          |  0.0000  |
+------------------------------------------------------------------------------+
+------------------------------------------------------------------------------+
+Index:             | No. of obs. | Index value | Std. error        | p-value  |
+-------------------+-------------+-------------+-------------------+----------|
+Erreygers norm. CI | 2133        | -.12317655  |.02092341          |  0.0000  |
+------------------------------------------------------------------------------+
+
+. 
+. log close table6
+      name:  table6
+       log:  E:\FH5\Thesis HA\Thesis_2026/HPV thesis/Output/tables/table6_decomposition.log
+  log type:  text
+ closed on:   6 May 2026, 03:35:27
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

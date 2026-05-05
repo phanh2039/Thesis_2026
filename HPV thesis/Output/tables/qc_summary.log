@@ -1,0 +1,96 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  qc
+       log:  E:\FH5\Thesis HA\Thesis_2026/HPV thesis/Output/tables/qc_summary.log
+  log type:  text
+ opened on:   6 May 2026, 03:34:56
+
+. count
+  4,102
+
+. summarize ccp5_bin ccp6_bin ccp6_aware gap [aw=wmweight]
+
+    Variable |     Obs      Weight        Mean   Std. dev.       Min        Max
+-------------+-----------------------------------------------------------------
+    ccp5_bin |   4,102  4556.75127    .6237977   .4844908          0          1
+    ccp6_bin |   4,102  4556.75127    .0747297   .2629868          0          1
+  ccp6_aware |   2,133  2842.49093    .1197981   .3248014          0          1
+         gap |   2,133  2842.49093    .8802019   .3248014          0          1
+
+. foreach v in ccp5_bin ccp6_bin ccp6_aware gap WAGE area minority insu MSTATUS edu ses5 mme ict dvindex sb1n {
+  2.     count if missing(`v')
+  3.     di as txt "`v' missing N = " %9.0f r(N) " (" %5.1f 100*r(N)/_N "%)"
+  4. }
+  0
+ccp5_bin missing N =         0 (  0.0%)
+  0
+ccp6_bin missing N =         0 (  0.0%)
+  1,969
+ccp6_aware missing N =      1969 ( 48.0%)
+  1,969
+gap missing N =      1969 ( 48.0%)
+  0
+WAGE missing N =         0 (  0.0%)
+  0
+area missing N =         0 (  0.0%)
+  0
+minority missing N =         0 (  0.0%)
+  1
+insu missing N =         1 (  0.0%)
+  1
+MSTATUS missing N =         1 (  0.0%)
+  0
+edu missing N =         0 (  0.0%)
+  0
+ses5 missing N =         0 (  0.0%)
+  0
+mme missing N =         0 (  0.0%)
+  0
+ict missing N =         0 (  0.0%)
+  201
+dvindex missing N =       201 (  4.9%)
+  1
+sb1n missing N =         1 (  0.0%)
+
+. svy: mean ccp5_bin ccp6_bin
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =  12            Number of obs   =      4,102
+Number of PSUs   = 697            Population size = 4,556.7513
+                                  Design df       =        685
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+    ccp5_bin |   .6237977   .0130819      .5981122    .6494832
+    ccp6_bin |   .0747297   .0064127      .0621388    .0873207
+--------------------------------------------------------------
+
+. svy, subpop(ccp5_bin): mean ccp6_bin ccp6_aware gap
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =  12            Number of obs   =      4,102
+Number of PSUs   = 697            Population size = 4,556.7513
+Subpop. no. PSUs = 628            Subpop. no. obs =      2,133
+                                  Subpop. size    = 2,842.4909
+                                  Design df       =        685
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+    ccp6_bin |   .1197981   .0098333       .100491    .1391051
+  ccp6_aware |   .1197981   .0098333       .100491    .1391051
+         gap |   .8802019   .0098333      .8608949     .899509
+--------------------------------------------------------------
+
+. log close qc
+      name:  qc
+       log:  E:\FH5\Thesis HA\Thesis_2026/HPV thesis/Output/tables/qc_summary.log
+  log type:  text
+ closed on:   6 May 2026, 03:34:58
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,361 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  awareness_biv
+       log:  E:\FH5\Thesis HA\Thesis_2026/HPV thesis/Output/tables/table2_awareness_bivariate.log
+  log type:  text
+ opened on:   6 May 2026, 03:35:00
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+          |      Heard about HPV vaccination     
+      Age |          No          Yes        Total
+----------+--------------------------------------
+    15-19 |        51.7         48.3        100.0
+          | [47.6,55.8]  [44.2,52.4]             
+          | 
+    20-24 |        33.8         66.2        100.0
+          | [29.9,38.1]  [61.9,70.1]             
+          | 
+    25-29 |        29.7         70.3        100.0
+          | [26.6,33.0]  [67.0,73.4]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(2)         =  157.0332
+    Design-based  F(1.99, 1361.95)=   42.5344     P = 0.0000
+1 2 3
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+          |      Heard about HPV vaccination     
+     Area |          No          Yes        Total
+----------+--------------------------------------
+    Urban |        26.9         73.1        100.0
+          | [23.2,31.0]  [69.0,76.8]             
+          | 
+    Rural |        44.0         56.0        100.0
+          | [40.7,47.4]  [52.6,59.3]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =  118.6831
+    Design-based  F(1, 685)       =   38.4305     P = 0.0000
+1 2
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+Ethnic    |      Heard about HPV vaccination     
+minority  |          No          Yes        Total
+----------+--------------------------------------
+       No |        33.0         67.0        100.0
+          | [30.2,35.8]  [64.2,69.8]             
+          | 
+      Yes |        63.9         36.1        100.0
+          | [59.4,68.3]  [31.7,40.6]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =  214.2337
+    Design-based  F(1, 685)       =  129.8862     P = 0.0000
+0 1
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,101
+Number of PSUs   = 697                            Population size = 4,554.5164
+                                                  Design df       =        685
+
+-------------------------------------------------
+Health    |      Heard about HPV vaccination     
+insurance |          No          Yes        Total
+----------+--------------------------------------
+  Insured |        37.0         63.0        100.0
+          | [34.4,39.7]  [60.3,65.6]             
+          | 
+ Uninsure |        41.3         58.7        100.0
+          | [34.6,48.3]  [51.7,65.4]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =    3.7601
+    Design-based  F(1, 685)       =    1.4247     P = 0.2330
+0 1
+(1 missing value generated)
+(1 real change made)
+(1 missing value generated)
+(1 real change made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,101
+Number of PSUs   = 697                            Population size = 4,555.9126
+                                                  Design df       =        685
+
+-------------------------------------------------
+Marital/U |
+nion      |
+status of |      Heard about HPV vaccination     
+woman     |          No          Yes        Total
+----------+--------------------------------------
+ Currentl |        36.4         63.6        100.0
+          | [33.3,39.6]  [60.4,66.7]             
+          | 
+ Formerly |        45.9         54.1        100.0
+          | [33.3,59.0]  [41.0,66.7]             
+          | 
+ Never ma |        38.2         61.8        100.0
+          | [34.8,41.7]  [58.3,65.2]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(2)         =    5.4322
+    Design-based  F(1.95, 1337.12)=    1.2516     P = 0.2859
+1 2 3
+(1 missing value generated)
+(1 real change made)
+(1 missing value generated)
+(1 real change made)
+(1 missing value generated)
+(1 real change made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+Education |      Heard about HPV vaccination     
+group     |          No          Yes        Total
+----------+--------------------------------------
+  Primary |        77.1         22.9        100.0
+          | [68.4,84.0]  [16.0,31.6]             
+          | 
+ Lower se |        50.8         49.2        100.0
+          | [45.9,55.7]  [44.3,54.1]             
+          | 
+ Upper se |        30.8         69.2        100.0
+          | [28.1,33.6]  [66.4,71.9]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(2)         =  268.8138
+    Design-based  F(1.97, 1347.88)=   64.8291     P = 0.0000
+1 2 3
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+Wealth    |
+index     |      Heard about HPV vaccination     
+quintiles |          No          Yes        Total
+----------+--------------------------------------
+ Q1 poore |        66.7         33.3        100.0
+          | [62.1,71.0]  [29.0,37.9]             
+          | 
+       Q2 |        41.5         58.5        100.0
+          | [36.7,46.4]  [53.6,63.3]             
+          | 
+       Q3 |        35.6         64.4        100.0
+          | [30.9,40.7]  [59.3,69.1]             
+          | 
+       Q4 |        26.5         73.5        100.0
+          | [22.2,31.2]  [68.8,77.8]             
+          | 
+ Q5 riche |        16.4         83.6        100.0
+          | [13.0,20.5]  [79.5,87.0]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(4)         =  473.4971
+    Design-based  F(3.98, 2726.12)=   60.0470     P = 0.0000
+1 2 3 4 5
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+Any mass  |
+media     |      Heard about HPV vaccination     
+exposure  |          No          Yes        Total
+----------+--------------------------------------
+       No |        60.9         39.1        100.0
+          | [54.3,67.2]  [32.8,45.7]             
+          | 
+      Yes |        35.3         64.7        100.0
+          | [32.7,37.9]  [62.1,67.3]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =   95.2195
+    Design-based  F(1, 685)       =   54.8340     P = 0.0000
+0 1
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,102
+Number of PSUs   = 697                            Population size = 4,556.7513
+                                                  Design df       =        685
+
+-------------------------------------------------
+Any ICT   |      Heard about HPV vaccination     
+exposure  |          No          Yes        Total
+----------+--------------------------------------
+       No |        76.6         23.4        100.0
+          | [65.5,84.9]  [15.1,34.5]             
+          | 
+      Yes |        36.8         63.2        100.0
+          | [34.2,39.4]  [60.6,65.8]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =   57.0885
+    Design-based  F(1, 685)       =   48.1285     P = 0.0000
+0 1
+(0 real changes made)
+(0 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                             Number of obs   =     3,901
+Number of PSUs   = 694                             Population size = 4,345.243
+                                                   Design df       =       682
+
+-------------------------------------------------
+Rejects   |
+all       |
+wife-beat |
+ing       |
+justifica |      Heard about HPV vaccination     
+tions     |          No          Yes        Total
+----------+--------------------------------------
+       No |        54.8         45.2        100.0
+          | [48.0,61.5]  [38.5,52.0]             
+          | 
+      Yes |        34.8         65.2        100.0
+          | [32.2,37.6]  [62.4,67.8]             
+          | 
+    Total |        36.8         63.2        100.0
+          | [34.2,39.4]  [60.6,65.8]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =   59.1923
+    Design-based  F(1, 682)       =   31.4021     P = 0.0000
+0 1
+(201 missing values generated)
+(201 real changes made)
+(201 missing values generated)
+(201 real changes made)
+(running tabulate on estimation sample)
+
+Number of strata =  12                            Number of obs   =      4,101
+Number of PSUs   = 697                            Population size = 4,556.6201
+                                                  Design df       =        685
+
+-------------------------------------------------
+Ever had  |
+sexual    |
+intercour |      Heard about HPV vaccination     
+se        |          No          Yes        Total
+----------+--------------------------------------
+       No |        38.9         61.1        100.0
+          | [35.4,42.5]  [57.5,64.6]             
+          | 
+      Yes |        36.5         63.5        100.0
+          | [33.5,39.7]  [60.3,66.5]             
+          | 
+    Total |        37.6         62.4        100.0
+          | [35.1,40.2]  [59.8,64.9]             
+-------------------------------------------------
+Key: Row percentage
+     [95% confidence interval for row percentage]
+
+  Pearson:
+    Uncorrected   chi2(1)         =    2.4215
+    Design-based  F(1, 685)       =    1.2118     P = 0.2714
+0 1
+(1 missing value generated)
+(1 real change made)
+(1 missing value generated)
+(1 real change made)
+      name:  awareness_biv
+       log:  E:\FH5\Thesis HA\Thesis_2026/HPV thesis/Output/tables/table2_awareness_bivariate.log
+  log type:  text
+ closed on:   6 May 2026, 03:35:02
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
