@@ -1,0 +1,114 @@
+\chapter{LITERATURE REVIEW}
+
+\section{Human papillomavirus and cervical cancer}
+
+Cervical cancer is a major global public health problem and remains disproportionately concentrated in settings where prevention services are less accessible. WHO estimated approximately 660,000 new cervical cancer cases and 350,000 deaths globally in 2022, with the greatest burden in low- and middle-income countries \cite{who2025cervicalcancer}. Broader global analyses show that unequal access to screening, diagnosis, treatment, and vaccination underlies much of the international variation in cervical cancer incidence and mortality \cite{arbyn2020}. In Viet Nam, the ICO/IARC HPV Information Centre estimated that 4,132 women are diagnosed with cervical cancer and 2,223 women die from the disease each year; cervical cancer ranks fifth among cancers in women aged 15--44 years \cite{hpvcentre2023vietnam}.
+
+Human papillomaviruses are double-stranded DNA viruses with more than 200 identified genotypes. Approximately 40 types infect the anogenital tract, and a smaller group is considered high-risk because of oncogenic potential \cite{doorbar2012}. Persistent infection with high-risk HPV types, particularly HPV 16 and HPV 18, can lead to cervical intraepithelial neoplasia and invasive cervical cancer through a multi-step process involving viral persistence, cellular transformation, and accumulation of precancerous lesions \cite{schiffman2016,deMartel2017}.
+
+Most HPV infections clear spontaneously, but persistent high-risk infection can progress over years. This long natural history creates two prevention opportunities: primary prevention through vaccination before infection, and secondary prevention through screening and treatment of precancerous lesions. The present thesis focuses on the primary prevention pathway.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    node distance=1.2cm,
+    stage/.style={draw, rounded corners, align=center, minimum height=1.0cm, text width=2.45cm, fill=gray!8},
+    prevention/.style={draw, rounded corners, align=center, text width=4.6cm, fill=blue!8},
+    arrow/.style={->, thick}
+]
+\node[stage] (susceptible) at (0,0) {Susceptible cervix};
+\node[stage] (infection) at (3.0,0) {High-risk HPV infection};
+\node[stage] (persistence) at (6.0,0) {Persistent infection};
+\node[stage] (precancer) at (9.0,0) {Precancerous lesions};
+\node[stage] (cancer) at (12.0,0) {Invasive cervical cancer};
+
+\draw[arrow] (susceptible) -- (infection);
+\draw[arrow] (infection) -- (persistence);
+\draw[arrow] (persistence) -- (precancer);
+\draw[arrow] (precancer) -- (cancer);
+
+\node[prevention] (primary) at (2.0,1.8) {Primary prevention\\HPV vaccination prevents infection before exposure};
+\node[prevention] (secondary) at (8.8,1.8) {Secondary prevention\\Screening and treatment of precancer};
+\draw[arrow, blue!70] (primary.south) -- (1.5,0.08);
+\draw[arrow, blue!70] (secondary) -- (precancer);
+\end{tikzpicture}
+\caption{Natural history of HPV infection and cervical cancer development. Author-drawn schematic based on established HPV natural history: vaccination prevents infection, while screening detects precancerous lesions for treatment.}
+\label{fig:hpv_natural_history}
+\end{figure}
+
+\section{HPV vaccines and prevention}
+
+Prophylactic HPV vaccines target the viral types responsible for most cervical cancers and several other HPV-related diseases. HPV 16 and HPV 18 are the dominant oncogenic types globally and account for most cervical cancers; in Viet Nam, 82.8\% of invasive cervical cancers are attributed to HPV 16 or 18 \cite{hpvcentre2023vietnam}. Currently available prophylactic products include bivalent, quadrivalent, and nonavalent vaccines, which differ in the HPV types covered but share the goal of preventing infection before exposure \cite{who2024productchoice}. Randomized trials and population-level studies have shown high efficacy and effectiveness against vaccine-type HPV infection and cervical precancer, especially when vaccination occurs before HPV exposure \cite{lei2020,drolet2019}. WHO's 2022 position paper recommends HPV vaccination as a core intervention for cervical cancer prevention and supports simplified schedules that can improve feasibility in national programs \cite{who2022hpv}. In 2024, WHO updated product-choice guidance and confirmed an additional prequalified product for single-dose use, reinforcing the programmatic relevance of single-dose schedules for supply, cost, and equity \cite{who2024productchoice,who2024singledose}.
+
+Population impact depends on coverage and equity. Countries with publicly financed and school-based delivery have often achieved high coverage, while countries relying on private-sector delivery or fragmented financing tend to show lower and more unequal uptake \cite{bruni2021,gallagher2018}. Therefore, measuring vaccine coverage alone is insufficient; the distribution of coverage across socioeconomic groups is also essential.
+
+\section{HPV vaccination in Viet Nam}
+
+Viet Nam has made progress in reproductive, maternal, and child health, but HPV vaccination had not historically reached all eligible girls and young women through a universal nationwide program at the time of MICS6. The National Action Plan on Prevention and Control of Cervical Cancer for 2016--2025 set a target that at least 25\% of girls and women would be vaccinated against HPV by 2025, but HPV vaccine was still not delivered through a universal national program during MICS6 data collection \cite{mohunfpa2016actionplan,unicef2022}. As a result, vaccination experience among young women may reflect household ability to pay, proximity to services, awareness, and local availability. The 2020--2021 MICS6 survey offers nationally representative data that can be used to assess this pattern among women aged 15--29 years before planned public financing of HPV vaccination. In 2022, the Government issued Resolution 104/NQ-CP on increasing the number of vaccines in the Expanded Programme on Immunization, including cervical cancer prevention vaccine from 2026; Government communication at that time described free cervical cancer vaccination for girls from 2026 \cite{govvn2022nq104,chinhphu2022womenhealth}.
+
+The age group in this thesis was chosen for three reasons. First, WHO identifies girls aged 9--14 years as the priority group for HPV vaccination before sexual debut \cite{who2025cervicalcancer,who2022hpv}; women aged 15--29 years therefore represent older adolescents and young adults for whom catch-up needs and missed opportunities can be evaluated. Second, it captures early adult women for whom awareness and uptake may be influenced by education, media exposure, marital status, sexual experience, and private-market access before public financing. Third, the group remains large enough in MICS6 to support survey-weighted modeling and inequality measurement. The MICS indicator records whether the respondent has received HPV vaccine, but it does not capture dose number, vaccine product, age at vaccination, price paid, or provider type; therefore, the outcome should be interpreted as self-reported receipt of any HPV vaccine dose rather than confirmed completion of a recommended schedule.
+
+\section{Social determinants of HPV vaccination}
+
+HPV vaccination behavior is shaped by social determinants operating at multiple levels. The social determinants of health framework emphasizes that health behaviors and service use are structured by economic resources, education, gender norms, ethnicity, and place of residence \cite{commission2008}. Andersen's behavioral model of health service use further distinguishes predisposing factors, enabling resources, and perceived or evaluated need \cite{andersen1995}.
+
+In HPV vaccination, wealth and education may influence ability to pay, health literacy, navigation of services, and trust in preventive care. Urban residence may increase proximity to vaccination providers and exposure to health promotion. Ethnic minority status may reflect language barriers, geographic marginalization, and unequal access to services. Media and ICT exposure can increase awareness, while gender-equitable attitudes may reflect broader empowerment and receptivity to preventive health messages \cite{nutbeam2008,wakefield2010,penchansky1981}.
+
+\section{Measuring socioeconomic inequality}
+
+Simple group comparisons describe differences between categories, but they do not summarize the full socioeconomic gradient. The concentration index is widely used to quantify wealth-related inequality in health. It is defined as twice the area between the concentration curve and the line of equality and can also be expressed as a covariance between the health outcome and the fractional rank in the socioeconomic distribution \cite{wagstaff1991,odonnell2008}:
+
+\begin{equation}
+CI = \frac{2}{\mu}\mathrm{cov}(y_i, r_i),
+\end{equation}
+
+\noindent where $y_i$ is the health variable, $\mu$ is its mean, and $r_i$ is the fractional socioeconomic rank. A positive concentration index indicates that the outcome is concentrated among wealthier individuals; a negative value indicates concentration among poorer individuals.
+
+For bounded outcomes such as binary vaccination indicators, the standard concentration index has limitations because its bounds depend on the outcome mean. Erreygers proposed a correction that is appropriate for bounded variables and more comparable across outcomes with different prevalence \cite{erreygers2009}. For a binary variable bounded between 0 and 1, the Erreygers-corrected concentration index can be written as:
+
+\begin{equation}
+E(y) = 4\mu CI.
+\end{equation}
+
+The Erreygers index can be decomposed to estimate the contribution of determinants:
+
+\begin{equation}
+E(y) = 4\sum_k \beta_k \bar{x}_k CI_k + \varepsilon,
+\end{equation}
+
+\noindent where $\beta_k$ is the marginal effect of determinant $x_k$, $\bar{x}_k$ is its mean, $CI_k$ is its concentration index, and $\varepsilon$ is the residual component \cite{wagstaff2003,erreygers2009}. This decomposition helps translate inequality measurement into policy interpretation by ranking the factors that contribute most to the observed gradient.
+
+\section{Conceptual framework}
+
+This thesis conceptualizes HPV vaccination as a two-stage prevention pathway. The first stage is awareness: whether a woman has heard of HPV vaccination. The second stage is uptake: whether awareness is translated into actual vaccination. A third outcome, the awareness--vaccination gap, captures women who have passed the awareness stage but remain unvaccinated.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    box/.style={draw, rounded corners, align=left, text width=4.5cm, minimum height=1.15cm, fill=gray!8},
+    outcomeBox/.style={draw, rounded corners, align=center, text width=5.8cm, minimum height=1.0cm, fill=green!8},
+    fail/.style={draw, rounded corners, align=center, text width=5.8cm, minimum height=1.0cm, fill=red!8},
+    arrow/.style={->, thick, shorten >=2pt, shorten <=2pt}
+]
+\node[box, text width=9.8cm, align=center, minimum height=0.95cm] (struct) at (0,0) {\textbf{Structural determinants}\\Wealth, residence, ethnicity, education};
+\node[box, text width=9.8cm, align=center, minimum height=1.10cm] (inter) at (0,-1.70) {\textbf{Intermediate determinants}\\Media exposure, health insurance, gender-equitable attitudes, marital status, sexual experience};
+\node[outcomeBox] (aware) at (0,-3.25) {\textbf{Awareness}\\Heard of HPV vaccination};
+\node[outcomeBox] (access) at (0,-4.75) {\textbf{Translation into access}\\Access, affordability, supply};
+\node[outcomeBox] (uptake) at (0,-6.25) {\textbf{Vaccination uptake}\\Received HPV vaccine};
+\node[fail] (gap) at (0,-7.85) {\textbf{Awareness--vaccination gap}\\Aware but unvaccinated};
+
+\draw[arrow] (struct) -- (inter);
+\draw[arrow] (inter) -- (aware);
+\draw[arrow] (aware) -- (access);
+\draw[arrow] (access) -- (uptake);
+\draw[arrow, dashed] (uptake) -- (gap);
+\end{tikzpicture}
+\caption{Conceptual framework for determinants of HPV vaccine awareness, uptake, and the awareness--vaccination gap among women aged 15--29 years.}
+\label{fig:conceptual_framework}
+\end{figure}
+
+The framework treats wealth, education, residence, and ethnicity as structural determinants. Media exposure, ICT exposure, health insurance, gender-equitable attitudes, marital status, and sexual experience are treated as intermediary or individual-level determinants. These factors may influence awareness and uptake differently. For example, media exposure may be more strongly related to awareness, while wealth may become more important when a woman must access and pay for vaccination.
+
+\clearpage

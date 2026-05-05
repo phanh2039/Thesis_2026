@@ -1,0 +1,45 @@
+\contentsline {chapter}{ACKNOWLEDGEMENTS}{}{}%
+\contentsline {chapter}{DECLARATION}{}{}%
+\contentsline {chapter}{ABSTRACT}{}{}%
+\contentsline {chapter}{LIST OF ABBREVIATIONS}{}{}%
+\contentsline {chapter}{LIST OF TABLES}{}{}%
+\contentsline {chapter}{LIST OF FIGURES}{}{}%
+\contentsline {chapter}{INTRODUCTION}{1}{}%
+\contentsline {chapter}{\numberline {1}LITERATURE REVIEW}{3}{}%
+\contentsline {section}{\numberline {1.1}Human papillomavirus and cervical cancer}{3}{}%
+\contentsline {section}{\numberline {1.2}HPV vaccines and prevention}{4}{}%
+\contentsline {section}{\numberline {1.3}HPV vaccination in Viet Nam}{5}{}%
+\contentsline {section}{\numberline {1.4}Social determinants of HPV vaccination}{6}{}%
+\contentsline {section}{\numberline {1.5}Measuring socioeconomic inequality}{6}{}%
+\contentsline {section}{\numberline {1.6}Conceptual framework}{7}{}%
+\contentsline {chapter}{\numberline {2}MATERIALS AND METHODS}{9}{}%
+\contentsline {section}{\numberline {2.1}Study design and data source}{9}{}%
+\contentsline {section}{\numberline {2.2}Study population}{9}{}%
+\contentsline {section}{\numberline {2.3}Outcome variables}{10}{}%
+\contentsline {section}{\numberline {2.4}Explanatory variables and confounder measures}{11}{}%
+\contentsline {section}{\numberline {2.5}Statistical analysis}{11}{}%
+\contentsline {subsection}{\numberline {2.5.1}Descriptive analysis}{11}{}%
+\contentsline {subsection}{\numberline {2.5.2}Bivariate analysis}{12}{}%
+\contentsline {subsection}{\numberline {2.5.3}Adjusted regression models}{12}{}%
+\contentsline {subsection}{\numberline {2.5.4}Concentration index and decomposition}{13}{}%
+\contentsline {section}{\numberline {2.6}Ethical considerations}{14}{}%
+\contentsline {chapter}{\numberline {3}RESULTS}{15}{}%
+\contentsline {section}{\numberline {3.1}Analytic sample and outcome prevalence}{15}{}%
+\contentsline {section}{\numberline {3.2}Bivariate patterns in awareness and vaccination}{16}{}%
+\contentsline {section}{\numberline {3.3}Awareness--vaccination gap}{17}{}%
+\contentsline {section}{\numberline {3.4}Socioeconomic inequality}{20}{}%
+\contentsline {section}{\numberline {3.5}Adjusted regression models}{21}{}%
+\contentsline {section}{\numberline {3.6}Absolute differences and vaccination among aware women}{23}{}%
+\contentsline {section}{\numberline {3.7}Erreygers decomposition}{24}{}%
+\contentsline {chapter}{\numberline {4}DISCUSSION}{27}{}%
+\contentsline {section}{\numberline {4.1}Principal findings}{27}{}%
+\contentsline {section}{\numberline {4.2}Interpretation of associated factors}{27}{}%
+\contentsline {section}{\numberline {4.3}Comparison with previous evidence}{29}{}%
+\contentsline {section}{\numberline {4.4}Policy implications}{30}{}%
+\contentsline {section}{\numberline {4.5}Strengths and limitations}{31}{}%
+\contentsline {chapter}{CONCLUSION AND RECOMMENDATIONS}{32}{}%
+\contentsline {chapter}{REFERENCES}{34}{}%
+\contentsline {chapter}{\numberline {A}APPENDICES}{38}{}%
+\contentsline {section}{\numberline {A.1}Generated Stata outputs}{38}{}%
+\contentsline {section}{\numberline {A.2}Logistic regression sensitivity analysis}{39}{}%
+\contentsline {section}{\numberline {A.3}Reproducibility note}{40}{}%

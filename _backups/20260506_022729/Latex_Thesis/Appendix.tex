@@ -1,0 +1,93 @@
+% =============================================================================
+% APPENDIX (Phụ lục)
+% =============================================================================
+\chapter*{APPENDIX}
+\phantomsection
+\addcontentsline{toc}{chapter}{APPENDIX}
+
+\section*{Appendix A1. Sensitivity analysis: Logistic regression results}
+
+As a sensitivity analysis, logistic regression models were fitted to compare odds ratios (OR) with the prevalence ratios (PR) reported in the main analysis. Results are presented in Table~\ref{tab:logistic}.
+
+\begin{table}[htbp]
+\caption{Sensitivity analysis: Adjusted odds ratios (OR) from logistic regression (N~=~3,899)}
+\centering
+\small
+\begin{tabular}{|p{3.5cm}|c|c|c|c|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{Awareness}} & \multicolumn{2}{c|}{\textbf{Vaccination}} \\
+\hline
+\textbf{Variable} & \textbf{OR} & \textbf{95\% CI} & \textbf{OR} & \textbf{95\% CI} \\
+\hline
+\multicolumn{5}{|l|}{\textit{Rural (ref: Urban)}} \\
+\hline
+Yes & 0.776 & 0.589--1.022 & 0.754 & 0.505--1.127 \\
+\hline
+\multicolumn{5}{|l|}{\textit{Age group (ref: 25--29)}} \\
+\hline
+15--19 & 0.230 & 0.160--0.332 & 0.467 & 0.259--0.841 \\
+20--24 & 0.715 & 0.550--0.930 & 1.178 & 0.771--1.801 \\
+\hline
+\multicolumn{5}{|l|}{\textit{Education (ref: Upper sec+)}} \\
+\hline
+Primary or less & 0.249 & 0.144--0.430 & 0.314 & 0.056--1.760 \\
+Lower secondary & 0.588 & 0.448--0.771 & 0.403 & 0.211--0.771 \\
+\hline
+\multicolumn{5}{|l|}{\textit{Wealth quintile (ref: Q5)}} \\
+\hline
+Q1 (poorest) & 0.198 & 0.123--0.317 & 0.104 & 0.033--0.326 \\
+Q2 & 0.361 & 0.245--0.533 & 0.534 & 0.313--0.911 \\
+Q3 & 0.372 & 0.255--0.544 & 0.387 & 0.232--0.646 \\
+Q4 & 0.525 & 0.365--0.757 & 0.581 & 0.362--0.933 \\
+\hline
+\multicolumn{5}{|l|}{\textit{Mass media (ref: No)}} \\
+\hline
+Yes & 1.395 & 0.992--1.962 & 2.050 & 0.763--5.508 \\
+\hline
+\multicolumn{5}{|l|}{\textit{Ethnic minority (ref: No)}} \\
+\hline
+Yes & 0.709 & 0.521--0.965 & 0.729 & 0.284--1.870 \\
+\hline
+\multicolumn{5}{|l|}{\textit{Decision autonomy (ref: Low)}} \\
+\hline
+High & 1.737 & 1.219--2.474 & 1.691 & 0.860--3.325 \\
+\hline
+\end{tabular}
+\label{tab:logistic}
+
+\vspace{0.2cm}
+\footnotesize{OR = odds ratio. The direction and statistical significance of all associations are consistent with the Poisson regression results (Table~3.5), confirming the robustness of findings.}
+\end{table}
+
+\section*{Appendix A2. Awareness--vaccination gap model}
+
+A Poisson regression model was fitted among aware women only (N~=~2,133 with subpopulation restriction) to identify factors associated with the awareness--vaccination gap.
+
+\section*{Appendix A3. MICS6 Questionnaire items used}
+
+\begin{table}[htbp]
+\caption{MICS6 questionnaire items used for outcome variable construction}
+\centering
+\small
+\begin{tabular}{|p{2.0cm}|p{5.0cm}|p{5.5cm}|}
+\hline
+\textbf{Item} & \textbf{Question} & \textbf{Response options} \\
+\hline
+CCP5 & Have you ever heard of HPV vaccination? & 1 = Yes, 2 = No \\
+\hline
+CCP6 & Have you ever received the HPV vaccine? & 1 = Yes, 2 = No, 8 = Don't know \\
+\hline
+SB1 & How old were you when you first had sexual intercourse? & Age in years, 0 = Never \\
+\hline
+DV1A--E & Who usually makes decisions about [specific topics]? & 1 = Respondent alone, 2 = Jointly/other \\
+\hline
+\end{tabular}
+\label{tab:mics_items}
+\end{table}
+
+\section*{Appendix A4. Stata analysis code}
+
+The complete Stata do-file used for all analyses is available in the study repository at:\\
+\texttt{HPV thesis/Code/hpv\_analysis\_main.do}
+
+The code implements the full analytical pipeline including data cleaning, survey design specification, descriptive statistics, bivariate analysis, concentration index computation, multivariable Poisson and logistic regression, and Erreygers decomposition. All analyses were performed using Stata version 17 with survey-weighted estimation.

@@ -1,0 +1,150 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      StataNow 19.5
+___/   /   /___/   /   /___/       SE—Standard Edition
+
+ Statistics and Data Science       Copyright 1985-2025 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-782-8272        https://www.stata.com
+                                   979-696-4600        service@stata.com
+
+Stata license: Unlimited-user network, expiring  3 Jul 2026
+Serial number: 401909323942
+  Licensed to: anh pham
+               vin uni
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. Maximum number of variables is set to 5,000 but can be increased;
+          see help set_maxvar.
+
+. do "c:\Users\phamh\OneDrive\Documents\Thesis_2026\HPV thesis\Code\calc_vacc_a
+> mong_aware.do" 
+
+. * Tính tỷ lệ tiêm chủng trong nhóm đã biết về HPV vaccine
+. version 17
+
+. clear all
+
+. set more off
+
+. 
+. local proj "`c(pwd)'/HPV thesis"
+
+. local int_dir "`proj'/Output/intermediate"
+
+. local tab_dir "`proj'/Output/tables"
+
+. 
+. use "`int_dir'/hpv_women_15_29_clean.dta", clear
+
+. 
+. log using "`tab_dir'/vacc_among_aware.log", replace text
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\phamh\OneDrive\Documents\Thesis_2026/HPV thesis/Output/ta
+> bles/vacc_among_aware.log
+  log type:  text
+ opened on:  22 Apr 2026, 17:33:29
+
+. 
+. di as txt _newline "================================================"
+
+================================================
+
+. di as txt "TỶ LỆ TIÊM CHỦNG TRONG NHÓM ĐÃ BIẾT VỀ HPV"
+TỶ LỆ TIÊM CHỦNG TRONG NHÓM ĐÃ BIẾT VỀ HPV
+
+. di as txt "================================================"
+================================================
+
+. 
+. * Số quan sát
+. count if ccp5_bin == 1
+  2,133
+
+. local n_aware = r(N)
+
+. count if ccp5_bin == 1 & ccp6_bin == 1
+  220
+
+. local n_vacc = r(N)
+
+. count if ccp5_bin == 1 & ccp6_bin == 0
+  1,913
+
+. local n_not_vacc = r(N)
+
+. 
+. di as txt _newline "Unweighted counts:"
+
+Unweighted counts:
+
+. di as txt "  Đã biết (aware):              `n_aware'"
+  Đã biết (aware):              2133
+
+. di as txt "  Đã biết VÀ đã tiêm:           `n_vacc'"
+  Đã biết VÀ đã tiêm:           220
+
+. di as txt "  Đã biết NHƯNG chưa tiêm:       `n_not_vacc'"
+  Đã biết NHƯNG chưa tiêm:       1913
+
+. 
+. * Survey-weighted estimate
+. di as txt _newline "Survey-weighted vaccination rate among aware women:"
+
+Survey-weighted vaccination rate among aware women:
+
+. svy, subpop(ccp5_bin): proportion ccp6_bin
+(running proportion on estimation sample)
+
+Survey: Proportion estimation
+
+Number of strata =  12            Number of obs   =      4,102
+Number of PSUs   = 697            Population size = 4,556.7513
+                                  Subpop. no. obs =      2,133
+                                  Subpop. size    = 2,842.4909
+                                  Design df       =        685
+
+--------------------------------------------------------------
+             |             Linearized            Logit
+             | Proportion   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+    ccp6_bin |
+         No  |   .8802019   .0098333      .8595124    .8982054
+        Yes  |   .1197981   .0098333      .1017946    .1404876
+--------------------------------------------------------------
+
+. svy, subpop(ccp5_bin): mean ccp6_bin
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =  12            Number of obs   =      4,102
+Number of PSUs   = 697            Population size = 4,556.7513
+                                  Subpop. no. obs =      2,133
+                                  Subpop. size    = 2,842.4909
+                                  Design df       =        685
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+    ccp6_bin |   .1197981   .0098333       .100491    .1391051
+--------------------------------------------------------------
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\phamh\OneDrive\Documents\Thesis_2026/HPV thesis/Output/ta
+> bles/vacc_among_aware.log
+  log type:  text
+ closed on:  22 Apr 2026, 17:33:30
+-------------------------------------------------------------------------------
+
+. exit, clear
+
+end of do-file

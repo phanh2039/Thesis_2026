@@ -1,0 +1,77 @@
+\appendix
+\chapter{APPENDICES}
+
+\section{Generated Stata outputs}
+
+The final analysis pipeline saved outputs under \texttt{HPV thesis/Output}. The key files used for this thesis were:
+
+\begin{itemize}
+    \item \texttt{tables/table1\_descriptive.csv}\\
+    Weighted descriptive percentages and 95\% confidence intervals.
+    \item \texttt{tables/table2\_awareness\_bivariate.csv}\\
+    Awareness prevalence by explanatory variables, 95\% confidence intervals, and design-based Pearson p-values.
+    \item \texttt{tables/table3\_vaccination\_bivariate.csv}\\
+    Vaccination prevalence by explanatory variables, 95\% confidence intervals, and design-based Pearson p-values.
+    \item \texttt{tables/table3b\_gap\_bivariate.csv}\\
+    Awareness--vaccination gap among aware women.
+    \item \texttt{tables/table4\_concentration\_indices.csv}\\
+    Standard and Erreygers concentration indices.
+    \item \texttt{tables/table5\_models.csv}\\
+    Adjusted Poisson models and logistic sensitivity models.
+    \item \texttt{tables/table6\_decomposition.csv}\\
+    Erreygers decomposition results.
+    \item \texttt{tables/table7\_vaccination\_aware\_sensitivity.csv}\\
+    Vaccination prevalence among women who had heard of HPV vaccination.
+    \item \texttt{tables/table8\_adjusted\_predicted\_by\_wealth.csv}\\
+    Adjusted predicted probabilities and absolute differences by wealth quintile.
+    \item \texttt{figures/*.png}\\
+    Figures copied into the LaTeX figure directory.
+\end{itemize}
+
+\section{Logistic regression sensitivity analysis}
+
+Table~\ref{tab:logistic_sensitivity} reports odds ratios from survey-weighted logistic regression. These models were used as sensitivity analyses only; prevalence ratios from modified Poisson models were used for primary interpretation. The generated Stata output also includes a separate logistic model for vaccination among women who had heard of HPV vaccination.
+
+\begin{longtable}{|p{3.8cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|}
+\caption{Survey-weighted logistic regression sensitivity analysis}
+\label{tab:logistic_sensitivity}\\
+\hline
+\textbf{Variable} & \textbf{Awareness OR (95\% CI)} & \textbf{Vaccination OR (95\% CI)} & \textbf{Gap OR (95\% CI)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Variable} & \textbf{Awareness OR (95\% CI)} & \textbf{Vaccination OR (95\% CI)} & \textbf{Gap OR (95\% CI)} \\
+\hline
+\endhead
+Rural & 0.776 (0.589--1.022) & 0.754 (0.505--1.127) & 1.199 (0.803--1.791) \\
+Age 15--19 & 0.230 (0.160--0.332) & 0.467 (0.259--0.841) & 1.380 (0.769--2.478) \\
+Age 20--24 & 0.715 (0.550--0.930) & 1.178 (0.771--1.801) & 0.800 (0.519--1.234) \\
+Primary or less & 0.249 (0.144--0.430) & 0.314 (0.056--1.760) & 1.256 (0.237--6.647) \\
+Lower secondary & 0.588 (0.448--0.771) & 0.403 (0.211--0.771) & 2.064 (1.050--4.057) \\
+Ethnic minority & 0.709 (0.521--0.965) & 0.729 (0.284--1.870) & 1.267 (0.500--3.214) \\
+Q1 poorest & 0.198 (0.123--0.317) & 0.104 (0.033--0.326) & 5.676 (1.826--17.648) \\
+Q2 & 0.361 (0.245--0.533) & 0.534 (0.313--0.911) & 1.426 (0.827--2.460) \\
+Q3 & 0.372 (0.255--0.544) & 0.387 (0.232--0.646) & 1.985 (1.166--3.378) \\
+Q4 & 0.525 (0.365--0.757) & 0.581 (0.362--0.933) & 1.538 (0.941--2.514) \\
+Mass media exposure & 1.395 (0.992--1.962) & 2.050 (0.763--5.508) & 0.482 (0.177--1.312) \\
+Gender-equitable attitude & 1.737 (1.219--2.474) & 1.691 (0.860--3.325) & 0.773 (0.399--1.500) \\
+Ever had sex & 1.273 (0.546--2.969) & 0.703 (0.296--1.669) & 1.344 (0.580--3.118) \\
+\hline
+\multicolumn{4}{|p{13.0cm}|}{\footnotesize Models used the same covariates and survey design as the primary Poisson models. Reference groups match Table~\ref{tab:adjusted_models}.} \\
+\hline
+\end{longtable}
+
+\section{Reproducibility note}
+
+The main do-file, raw input, and output directory are:
+
+\begin{flushleft}
+\small\ttfamily
+HPV thesis/Code/HPV\_thesis\_merged.do\\
+HPV thesis/Dataset/data\_raw\_mics6\_inter\_format.dta\\
+HPV thesis/Output
+\end{flushleft}
+
+The analysis writes all generated files to the output directory and does not modify the raw dataset.
+
+\clearpage

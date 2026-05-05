@@ -1,0 +1,56 @@
+\contentsline {chapter}{ACKNOWLEDGEMENTS}{}{}%
+\contentsline {chapter}{DECLARATION}{}{}%
+\contentsline {chapter}{ABSTRACT}{}{}%
+\contentsline {chapter}{LIST OF ABBREVIATIONS}{}{}%
+\contentsline {chapter}{LIST OF TABLES}{}{}%
+\contentsline {chapter}{LIST OF FIGURES}{}{}%
+\contentsline {chapter}{INTRODUCTION}{1}{}%
+\contentsline {chapter}{\numberline {1}LITERATURE REVIEW}{3}{}%
+\contentsline {section}{\numberline {1.1}Human papillomavirus and cervical cancer}{3}{}%
+\contentsline {subsection}{\numberline {1.1.1}Epidemiology of cervical cancer}{3}{}%
+\contentsline {subsection}{\numberline {1.1.2}HPV virology and natural history}{3}{}%
+\contentsline {subsection}{\numberline {1.1.3}HPV vaccines: types and efficacy}{5}{}%
+\contentsline {section}{\numberline {1.2}HPV vaccination globally and in Vietnam}{5}{}%
+\contentsline {subsection}{\numberline {1.2.1}Global vaccination landscape}{5}{}%
+\contentsline {subsection}{\numberline {1.2.2}HPV vaccination in Vietnam}{6}{}%
+\contentsline {section}{\numberline {1.3}Socioeconomic inequality in health: concepts and measurement}{6}{}%
+\contentsline {subsection}{\numberline {1.3.1}Defining health inequality}{6}{}%
+\contentsline {subsection}{\numberline {1.3.2}The concentration index}{7}{}%
+\contentsline {subsection}{\numberline {1.3.3}The Erreygers correction and decomposition}{7}{}%
+\contentsline {section}{\numberline {1.4}Evidence on determinants of HPV awareness and vaccination}{8}{}%
+\contentsline {section}{\numberline {1.5}Research gap and rationale}{9}{}%
+\contentsline {section}{\numberline {1.6}Conceptual framework}{9}{}%
+\contentsline {chapter}{\numberline {2}MATERIALS AND METHODS}{12}{}%
+\contentsline {section}{\numberline {2.1}Study design}{12}{}%
+\contentsline {section}{\numberline {2.2}Study participants}{12}{}%
+\contentsline {subsection}{\numberline {2.2.1}Inclusion criteria}{12}{}%
+\contentsline {subsection}{\numberline {2.2.2}Exclusion criteria}{12}{}%
+\contentsline {section}{\numberline {2.3}Sample size}{13}{}%
+\contentsline {section}{\numberline {2.4}Study variables}{14}{}%
+\contentsline {subsection}{\numberline {2.4.1}Outcome variables}{14}{}%
+\contentsline {subsection}{\numberline {2.4.2}Explanatory variables}{14}{}%
+\contentsline {section}{\numberline {2.5}Data analysis}{14}{}%
+\contentsline {subsection}{\numberline {2.5.1}Step 1: Descriptive statistics}{15}{}%
+\contentsline {subsection}{\numberline {2.5.2}Step 2: Bivariate analysis}{15}{}%
+\contentsline {subsection}{\numberline {2.5.3}Step 3: Concentration index}{15}{}%
+\contentsline {subsection}{\numberline {2.5.4}Step 4: Multivariable Poisson regression}{17}{}%
+\contentsline {subsection}{\numberline {2.5.5}Step 5: Erreygers decomposition}{17}{}%
+\contentsline {subsection}{\numberline {2.5.6}Step 6: Stratified and sensitivity analyses}{18}{}%
+\contentsline {section}{\numberline {2.6}Ethical considerations}{19}{}%
+\contentsline {chapter}{\numberline {3}RESULTS}{20}{}%
+\contentsline {section}{\numberline {3.1}Characteristics of the study population}{20}{}%
+\contentsline {section}{\numberline {3.2}Bivariate analysis of HPV awareness}{20}{}%
+\contentsline {section}{\numberline {3.3}Bivariate analysis of HPV vaccination}{21}{}%
+\contentsline {section}{\numberline {3.4}Socioeconomic inequality: concentration index}{24}{}%
+\contentsline {subsection}{\numberline {3.4.1}Overall concentration indices}{24}{}%
+\contentsline {subsection}{\numberline {3.4.2}Concentration curves}{26}{}%
+\contentsline {section}{\numberline {3.5}Multivariable Poisson regression}{27}{}%
+\contentsline {section}{\numberline {3.6}Erreygers decomposition analysis}{28}{}%
+\contentsline {subsection}{\numberline {3.6.1}Decomposition of awareness inequality}{28}{}%
+\contentsline {subsection}{\numberline {3.6.2}Decomposition of vaccination inequality}{28}{}%
+\contentsline {subsection}{\numberline {3.6.3}Decomposition of awareness--vaccination gap inequality}{29}{}%
+\contentsline {chapter}{\numberline {4}DISCUSSION}{32}{}%
+\contentsline {section}{\numberline {4.1}Strengths and limitations}{34}{}%
+\contentsline {chapter}{CONCLUSION AND RECOMMENDATIONS}{35}{}%
+\contentsline {chapter}{REFERENCES}{37}{}%
+\contentsline {chapter}{APPENDIX}{42}{}%
