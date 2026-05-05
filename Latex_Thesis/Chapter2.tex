@@ -8,7 +8,7 @@ The analysis used the women's individual dataset in international Stata format. 
 
 \section{Study population}
 
-The target population for this thesis was Vietnamese women aged 15--29 years. The analytic sample was defined by the following criteria:
+The target population for this thesis was Vietnamese women aged 15--29 years. This age range describes older adolescents and young adult women before broad public financing of HPV vaccination; it should not be interpreted as estimating coverage among the standard primary target group of girls aged 9--14 years. The analytic sample was defined by the following criteria:
 
 \begin{itemize}
     \item Women in MICS age groups WAGE 1--3, corresponding to ages 15--19, 20--24, and 25--29 years.
@@ -44,14 +44,14 @@ Three primary binary outcomes and one sensitivity outcome were constructed:
 
 \begin{enumerate}
     \item \textbf{HPV vaccine awareness} (\texttt{ccp5\_bin}): coded 1 if the respondent reported having heard of HPV vaccination and 0 otherwise.
-    \item \textbf{HPV vaccination status in the full analytic sample} (\texttt{ccp6\_bin}): coded 1 if the respondent reported having received HPV vaccine and 0 otherwise. Women who had not heard of HPV vaccination were coded as unvaccinated, consistent with the MICS skip pattern. This outcome should be interpreted as reported vaccination in the full population, under the assumption that women who had never heard of HPV vaccination had not been vaccinated.
+    \item \textbf{Self-reported any-dose HPV vaccination status in the full analytic sample} (\texttt{ccp6\_bin}): coded 1 if the respondent reported having received HPV vaccine and 0 otherwise. Because the vaccination question was asked conditional on awareness in the MICS skip pattern, full-sample vaccination prevalence should be interpreted as self-reported any-dose uptake under the conservative assumption that women who had never heard of HPV vaccination had not received it. This outcome does not measure dose completion, vaccine product, timing, payment source, or provider type.
     \item \textbf{Awareness--vaccination gap} (\texttt{gap}): defined only among women who had heard of HPV vaccination. It was coded 1 for aware but unvaccinated and 0 for aware and vaccinated.
-    \item \textbf{HPV vaccination among aware women} (\texttt{ccp6\_aware}): coded 1 for vaccinated and 0 for unvaccinated among women who had heard of HPV vaccination. This was used as a sensitivity analysis to separate the question of awareness from the question of uptake conditional on awareness.
+    \item \textbf{HPV vaccination among aware women} (\texttt{ccp6\_aware}): coded 1 for vaccinated and 0 for unvaccinated among women who had heard of HPV vaccination. This complementary outcome was analyzed explicitly to assess whether uptake patterns persisted after conditioning on awareness and to separate information barriers from post-awareness access barriers.
 \end{enumerate}
 
 \section{Explanatory variables and confounder measures}
 
-Variables were selected based on the conceptual framework, prior literature, and availability in MICS6. Table~\ref{tab:variables} lists all explanatory variables used in descriptive and bivariate analyses. ICT exposure was included descriptively and bivariately, but it was excluded from adjusted regression and decomposition because its weighted prevalence was 97.9\%, leaving sparse contrast and a high risk of unstable estimates.
+Variables were selected based on the conceptual framework, prior literature, and availability in MICS6. The adjusted models were intended to estimate conditional associations rather than total causal effects. Because structural variables such as education, household wealth, ethnicity, and residence may lie on overlapping causal pathways, estimates should not be interpreted as causal effects of isolated variables. Table~\ref{tab:variables} lists all explanatory variables used in descriptive and bivariate analyses. ICT exposure was included descriptively and bivariately, but it was excluded from adjusted regression and decomposition because its weighted prevalence was 97.9\%, leaving sparse contrast and a high risk of unstable estimates.
 
 \begin{table}[htbp]
 \caption{Explanatory variables and operational definitions}
@@ -103,30 +103,52 @@ Survey-weighted percentages and 95\% confidence intervals were estimated for all
 
 \subsection{Bivariate analysis}
 
-For each explanatory variable, outcome prevalence was estimated using survey-weighted proportions. Bivariate p-values were obtained from design-based Pearson chi-squared tests from \texttt{svy: tabulate, pearson}. For the gap outcome, all bivariate analyses used \texttt{svy, subpop(ccp5\_bin)} so that inference was restricted to women who had heard of HPV vaccination while preserving the original survey design.
+For each explanatory variable, outcome prevalence was estimated using survey-weighted proportions. Bivariate p-values were obtained from design-based Pearson chi-squared tests from \texttt{svy: tabulate, pearson}. These tests were descriptive, emphasized alongside effect sizes and 95\% confidence intervals, and were not adjusted for multiple comparisons. For the gap outcome, all bivariate analyses used \texttt{svy, subpop(ccp5\_bin)} so that inference was restricted to women who had heard of HPV vaccination while preserving the original survey design.
 
 \subsection{Adjusted regression models}
 
-Adjusted prevalence ratios were estimated using survey-weighted Poisson regression with a log link. This approach was chosen because odds ratios can overstate relative associations when outcomes are common, particularly for HPV vaccine awareness \cite{barros2003,zou2004}. The \texttt{svy} prefix used Taylor linearized survey variance estimation, accounting for stratification, clustering, and sampling weights; this provides design-based standard errors for the modified Poisson models. Models included age group, residence, ethnicity, marital status, education, wealth quintile, insurance, mass media exposure, gender-equitable attitude, and sexual experience. ICT exposure was excluded from adjusted models because of near-universal prevalence.
+Adjusted prevalence ratios were estimated using survey-weighted Poisson regression with a log link. This approach was chosen because odds ratios can overstate relative associations when outcomes are common, particularly for HPV vaccine awareness \cite{barros2003,zou2004}. The \texttt{svy} prefix used Taylor linearized survey variance estimation, accounting for stratification, clustering, and sampling weights; this provides design-based standard errors for the modified Poisson models. Models included age group, residence, ethnicity, marital status, education, wealth quintile, insurance, mass media exposure, gender-equitable attitude, and sexual experience. ICT exposure was excluded from adjusted models because of near-universal prevalence. Adjusted models used complete-case records for the modeled outcome and covariates; the main reduction in model sample size was due to missing gender-equitable attitude information.
 
 For awareness and vaccination, models were fitted in the full analytic sample. For the awareness--vaccination gap and vaccination-among-aware sensitivity outcome, models used the aware subpopulation while preserving the survey design. Logistic regression models estimating odds ratios were conducted as sensitivity analyses and reported in the appendix. Adjusted predicted probabilities by wealth quintile were also estimated from survey-weighted logistic models to present absolute differences alongside prevalence ratios.
 
+\begin{table}[htbp]
+\caption{Missingness in variables used for adjusted models}
+\centering
+\small
+\begin{tabular}{|p{5.0cm}|c|c|}
+\hline
+\textbf{Variable} & \textbf{Missing n} & \textbf{Missing \%} \\
+\hline
+HPV vaccine awareness & 0 & 0.0 \\
+Any-dose HPV vaccine uptake & 0 & 0.0 \\
+Age group, residence, ethnicity, education, wealth quintile, mass media exposure & 0 & 0.0 \\
+Health insurance & 1 & $<$0.1 \\
+Marital status & 1 & $<$0.1 \\
+Ever had sexual intercourse & 1 & $<$0.1 \\
+Gender-equitable attitude proxy & 201 & 4.9 \\
+\hline
+\multicolumn{3}{|p{11.5cm}|}{\footnotesize The final analytic sample contained 4,102 women. Complete-case adjusted models for full-sample outcomes used 3,899 observations. Among 2,133 aware women, 2,064 had complete covariate information for the gap and vaccination-among-aware analyses.} \\
+\hline
+\end{tabular}
+\label{tab:missingness}
+\end{table}
+
 \subsection{Concentration index and decomposition}
 
-Socioeconomic ranking used the continuous household wealth score (\texttt{ses}). Wealth quintiles were used for grouped descriptive analysis and as dummy variables in adjusted and decomposition models.
+Socioeconomic ranking used the continuous household wealth score (\texttt{ses}). Wealth quintiles were used for grouped descriptive analysis and as dummy variables in adjusted and decomposition models. Because wealth quintiles were also derived from the wealth distribution used to rank inequality, their decomposition contributions should be interpreted as descriptive accounting of the wealth gradient rather than as independent actionable causes.
 
 The standard concentration index was estimated for awareness, vaccination, and the awareness--vaccination gap. Because all outcomes were binary, the Erreygers-corrected concentration index was also estimated. Positive values indicate pro-rich concentration; negative values indicate pro-poor concentration.
 
-Decomposition of the Erreygers index used a probit model to obtain average marginal effects for explanatory variables. Categorical determinants were entered as dummy variables, with reference categories matching the adjusted regression models: urban residence, age 25--29 years, currently married/in union, upper secondary or higher education, insured, Kinh/Hoa ethnicity, richest wealth quintile, no mass media exposure, no gender-equitable attitude, and no sexual experience. For each determinant dummy, its own survey-weighted standard concentration index was estimated using the continuous wealth score as the rank variable. The contribution of each determinant was calculated as:
+Decomposition of the Erreygers index used a probit model to obtain average marginal effects for explanatory variables. Categorical covariates were entered as dummy variables, with reference categories matching the adjusted regression models: urban residence, age 25--29 years, currently married/in union, upper secondary or higher education, insured, Kinh/Hoa ethnicity, richest wealth quintile, no mass media exposure, no gender-equitable attitude, and no sexual experience. For each covariate dummy, its own survey-weighted standard concentration index was estimated using the continuous wealth score as the rank variable. The contribution of each covariate was calculated as:
 
 \begin{equation}
 \text{Contribution}_k = 4 \times AME_k \times \bar{x}_k \times CI_k,
 \end{equation}
 
-\noindent where $AME_k$ is the average marginal effect, $\bar{x}_k$ is the weighted mean of the determinant, and $CI_k$ is the determinant's standard concentration index. Percentage contribution was calculated by dividing each contribution by the total Erreygers index. Bootstrap confidence intervals for decomposition contributions were not estimated; therefore, decomposition results are presented as explanatory accounting of the observed inequality pattern and not as causal attribution.
+\noindent where $AME_k$ is the average marginal effect, $\bar{x}_k$ is the weighted mean of the covariate, and $CI_k$ is the covariate's standard concentration index. Percentage contribution was calculated by dividing each contribution by the total Erreygers index. Bootstrap confidence intervals for decomposition contributions were not estimated; therefore, decomposition results are presented as approximate explanatory accounting of the observed inequality pattern and not as causal attribution or statistically tested differences between contributors. A useful future sensitivity analysis would repeat decomposition after excluding wealth-quintile indicators to identify non-wealth covariates that remain aligned with the wealth gradient.
 
 \section{Ethical considerations}
 
-This study used de-identified secondary data from MICS6. The original survey obtained ethical approval and respondent consent according to UNICEF and national survey procedures \cite{unicef2022}. No direct contact with human participants occurred in this thesis.
+This study used de-identified secondary data from MICS6. The original survey obtained ethical approval and respondent consent according to UNICEF and national survey procedures \cite{unicef2022}. No direct contact with human participants occurred in this thesis. Any requirement for additional institutional review or exemption at Hanoi Medical University should be documented according to the university's thesis procedures before final submission.
 
 \clearpage
