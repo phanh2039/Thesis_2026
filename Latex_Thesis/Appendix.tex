@@ -26,7 +26,72 @@ The final analysis pipeline saved outputs under \texttt{HPV thesis/Output}. The 
     Adjusted predicted probabilities and absolute differences by wealth quintile.
     \item \texttt{figures/*.png}\\
     Figures copied into the LaTeX figure directory.
+    \item \texttt{tools/regenerate\_figures.py}\\
+    Python helper used to redraw publication-quality figures from Stata-generated tables without changing any numeric estimates.
+    \item \texttt{tools/check\_references.py}\\
+    Reference-audit helper that writes \texttt{reference\_link\_check.csv} locally to reduce ghost citations and broken DOI/URL references; the generated CSV is intentionally not tracked to avoid merge conflicts.
 \end{itemize}
+
+
+\section{Missingness and complete-case analysis}
+
+\begin{table}[H]
+\caption{Missingness of variables used in adjusted models}
+\centering
+\small
+\begin{tabular}{|p{5.2cm}|r|r|r|p{2.6cm}|}
+\hline
+\textbf{Variable} & \textbf{Non-missing n} & \textbf{Missing n} & \textbf{Missing \%} & \textbf{Included in complete-case model} \\
+\hline
+HPV vaccine awareness & 4,102 & 0 & 0.0 & Outcome \\
+Self-reported any-dose HPV vaccine uptake & 4,102 & 0 & 0.0 & Outcome \\
+Awareness--vaccination gap & 2,133 aware women & 1,969 not aware & -- & Outcome among aware women \\
+Age group & 4,102 & 0 & 0.0 & Yes \\
+Residence & 4,102 & 0 & 0.0 & Yes \\
+Ethnicity & 4,102 & 0 & 0.0 & Yes \\
+Education & 4,102 & 0 & 0.0 & Yes \\
+Wealth quintile & 4,102 & 0 & 0.0 & Yes \\
+Mass media exposure & 4,102 & 0 & 0.0 & Yes \\
+Health insurance & 4,101 & 1 & $<$0.1 & Yes \\
+Marital status & 4,101 & 1 & $<$0.1 & Yes \\
+Ever had sexual intercourse & 4,101 & 1 & $<$0.1 & Yes \\
+Gender-equitable attitude proxy & 3,901 & 201 & 4.9 & Yes \\
+\hline
+\multicolumn{5}{|p{13.2cm}|}{\footnotesize The final analytic sample contained 4,102 women. Complete-case adjusted models for awareness and any-dose uptake used 3,899 observations. Among 2,133 aware women, 2,064 had complete covariate information for the awareness--vaccination gap and vaccination-among-aware analyses.} \\
+\hline
+\end{tabular}
+\label{tab:missingness_appendix}
+\end{table}
+
+\begin{table}[H]
+\caption{Complete-case exclusions by selected equity variables}
+\centering
+\small
+\begin{tabular}{|p{3.9cm}|p{3.2cm}|r|r|r|}
+\hline
+\textbf{Variable} & \textbf{Category} & \textbf{Total n} & \textbf{Excluded n} & \textbf{Excluded \%} \\
+\hline
+Wealth quintile & Q1 poorest & 1,587 & 93 & 5.9 \\
+ & Q2 & 716 & 33 & 4.6 \\
+ & Q3 & 647 & 28 & 4.3 \\
+ & Q4 & 603 & 28 & 4.6 \\
+ & Q5 richest & 549 & 21 & 3.8 \\
+\hline
+Residence & Urban & 1,206 & 43 & 3.6 \\
+ & Rural & 2,896 & 160 & 5.5 \\
+\hline
+Ethnicity & Kinh/Hoa & 2,415 & 113 & 4.7 \\
+ & Ethnic minority & 1,687 & 90 & 5.3 \\
+\hline
+Education & Primary or less & 601 & 27 & 4.5 \\
+ & Lower secondary & 1,074 & 58 & 5.4 \\
+ & Upper secondary+ & 2,427 & 118 & 4.9 \\
+\hline
+\multicolumn{5}{|p{13.2cm}|}{\footnotesize Excluded observations are the 203 women omitted from complete-case adjusted models for full-sample outcomes. Exclusion was driven almost entirely by missing gender-equitable attitude information; exclusion percentages were modestly higher among poorer, rural, and ethnic minority women.} \\
+\hline
+\end{tabular}
+\label{tab:complete_case_profile}
+\end{table}
 
 \section{Logistic regression sensitivity analysis}
 
@@ -57,9 +122,24 @@ Mass media exposure & 1.395 (0.992--1.962) & 2.050 (0.763--5.508) & 0.482 (0.177
 Gender-equitable attitude & 1.737 (1.219--2.474) & 1.691 (0.860--3.325) & 0.773 (0.399--1.500) \\
 Ever had sex & 1.273 (0.546--2.969) & 0.703 (0.296--1.669) & 1.344 (0.580--3.118) \\
 \hline
-\multicolumn{4}{|p{13.0cm}|}{\footnotesize Models used the same covariates and survey design as the primary Poisson models. Reference groups match Table~\ref{tab:adjusted_models}.} \\
+\multicolumn{4}{|p{13.0cm}|}{\footnotesize Models used the same covariates and survey design as the primary Poisson models. Reference groups match Tables~\ref{tab:adjusted_awareness}--\ref{tab:adjusted_gap}.} \\
 \hline
 \end{longtable}
+
+
+\section{Recommended methodological extensions for future work}
+
+The current thesis provides a valid national cross-sectional baseline, but several extensions could strengthen future manuscript versions or post-introduction monitoring.
+
+\begin{enumerate}
+    \item \textbf{Two-stage uptake modeling.} A sequential or hurdle-style framework could model awareness first and vaccination conditional on awareness second, helping distinguish information barriers from post-awareness access barriers.
+    \item \textbf{Decomposition sensitivity excluding wealth quintiles.} Because the inequality rank is based on household wealth, a second decomposition excluding wealth-quintile indicators would show which non-wealth factors---education, residence, ethnicity, media exposure, insurance, and gender-equitable attitudes---remain aligned with the wealth gradient.
+    \item \textbf{Uncertainty for decomposition.} Bootstrap, replicate-weight, or other design-aware resampling approaches could estimate confidence intervals for individual decomposition contributions.
+    \item \textbf{Additional inequality metrics.} Slope Index of Inequality and Relative Index of Inequality could complement concentration indices because they are easier to communicate as absolute and relative differences between the bottom and top of the socioeconomic rank.
+    \item \textbf{Effect modification and multilevel models.} Pre-specified interactions between wealth and residence, wealth and education, or ethnicity and residence, and multilevel models with province or region identifiers if available, could identify priority implementation groups.
+    \item \textbf{Causal framework refinement.} A directed acyclic graph should distinguish confounders, mediators, colliders, and equity stratifiers before estimating causal effects. In the present thesis, adjusted models should be read as conditional associations rather than total social effects.
+    \item \textbf{Missing-data and service-channel variables.} Future analyses should use multiple imputation or sensitivity analysis if missingness increases, and should incorporate dose completion, vaccine type, service location, price paid, payment source, and reasons for non-vaccination when these variables become available.
+\end{enumerate}
 
 \section{Reproducibility note}
 
