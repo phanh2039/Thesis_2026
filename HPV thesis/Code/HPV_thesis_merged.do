@@ -256,6 +256,59 @@ foreach v in ccp5_bin ccp6_bin ccp6_aware gap WAGE area minority insu MSTATUS ed
     count if missing(`v')
     di as txt "`v' missing N = " %9.0f r(N) " (" %5.1f 100*r(N)/_N "%)"
 }
+
+* Machine-readable missingness and complete-case flow for Appendix tables
+capture postclose missout
+tempname missout
+postfile `missout' str60 variable double(nonmissing_n missing_n missing_pct) str40 role ///
+    using "`tab_dir'/tableA_missingness.dta", replace
+foreach item in ccp5_bin ccp6_bin WAGE area minority edu ses5 mme insu MSTATUS sb1n dvindex {
+    local vlabel : variable label `item'
+    if "`vlabel'" == "" local vlabel "`item'"
+    quietly count if !missing(`item')
+    scalar __nonmiss = r(N)
+    quietly count if missing(`item')
+    scalar __miss = r(N)
+    scalar __misspct = 100 * __miss / _N
+    local role "Covariate"
+    if inlist("`item'", "ccp5_bin", "ccp6_bin") local role "Outcome"
+    post `missout' ("`vlabel'") (__nonmiss) (__miss) (__misspct) ("`role'")
+}
+postclose `missout'
+preserve
+use "`tab_dir'/tableA_missingness.dta", clear
+format missing_pct %6.2f
+export delimited using "`tab_dir'/tableA_missingness.csv", replace
+restore
+
+gen byte cc_full_model = !missing(ccp5_bin, ccp6_bin, WAGE, area, minority, MSTATUS, edu, ses5, insu, mme, dvindex, sb1n)
+capture postclose ccout
+tempname ccout
+postfile `ccout' str40 variable str60 category double(total_n excluded_n excluded_pct) ///
+    using "`tab_dir'/tableA_complete_case_profile.dta", replace
+foreach v in ses5 area minority edu {
+    local vlabel : variable label `v'
+    if "`vlabel'" == "" local vlabel "`v'"
+    levelsof `v' if !missing(`v'), local(levels)
+    foreach lev of local levels {
+        local cat : label (`v') `lev'
+        if "`cat'" == "" local cat "`lev'"
+        quietly count if `v' == `lev'
+        scalar __total = r(N)
+        quietly count if `v' == `lev' & cc_full_model == 0
+        scalar __excluded = r(N)
+        scalar __excluded_pct = 100 * __excluded / __total
+        post `ccout' ("`vlabel'") ("`cat'") (__total) (__excluded) (__excluded_pct)
+    }
+}
+postclose `ccout'
+preserve
+use "`tab_dir'/tableA_complete_case_profile.dta", clear
+format excluded_pct %6.2f
+export delimited using "`tab_dir'/tableA_complete_case_profile.csv", replace
+restore
+drop cc_full_model
+
 svy: mean ccp5_bin ccp6_bin
 svy, subpop(ccp5_bin): mean ccp6_bin ccp6_aware gap
 log close qc
@@ -325,7 +378,7 @@ foreach outcome in ccp5_bin ccp6_bin gap ccp6_aware {
     capture postclose tbiv
     tempname tbiv
     postfile `tbiv' str40 variable str60 category str20 outcome ///
-        double(unweighted_n pct lci uci pvalue) using "`outfile'.dta", replace
+        double(unweighted_n event_n pct lci uci pvalue) using "`outfile'.dta", replace
 
     capture log close `outname'_biv
     log using "`outfile'.log", replace text name(`outname'_biv)
@@ -353,6 +406,8 @@ foreach outcome in ccp5_bin ccp6_bin gap ccp6_aware {
             if inlist("`outcome'", "gap", "ccp6_aware") {
                 quietly count if `v' == `lev' & ccp5_bin == 1 & !missing(gap)
                 scalar __n = r(N)
+                quietly count if `v' == `lev' & ccp5_bin == 1 & `outcome' == 1
+                scalar __event_n = r(N)
                 tempvar sub
                 gen byte `sub' = (`v' == `lev' & ccp5_bin == 1) if !missing(`v') & !missing(ccp5_bin)
                 replace `sub' = 0 if missing(`sub')
@@ -361,6 +416,8 @@ foreach outcome in ccp5_bin ccp6_bin gap ccp6_aware {
             else {
                 quietly count if `v' == `lev' & !missing(`outcome')
                 scalar __n = r(N)
+                quietly count if `v' == `lev' & `outcome' == 1
+                scalar __event_n = r(N)
                 tempvar sub
                 gen byte `sub' = (`v' == `lev') if !missing(`v') & !missing(`outcome')
                 replace `sub' = 0 if missing(`sub')
@@ -370,7 +427,7 @@ foreach outcome in ccp5_bin ccp6_bin gap ccp6_aware {
             scalar __pct = __m[1,2] * 100
             scalar __lci = __m[5,2] * 100
             scalar __uci = __m[6,2] * 100
-            post `tbiv' ("`vlabel'") ("`cat'") ("`outcome'") (__n) (__pct) (__lci) (__uci) (__p)
+            post `tbiv' ("`vlabel'") ("`cat'") ("`outcome'") (__n) (__event_n) (__pct) (__lci) (__uci) (__p)
             drop `sub'
         }
     }
